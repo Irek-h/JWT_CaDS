@@ -15,3 +15,40 @@ Links/topics to go through:
 * https://www.softwaresecured.com/security-issues-jwt-authentication/
 * https://www.softwaresecured.com/security-issues-jwt-authentication/
 * symmetric vs assymetric
+
+---
+# 1. What is JSON Web Token?
+  JSON Web Token also knows as JWT has found its way into all major web frameworks. It has simple, compact and easy to use architecture. Token has three parts *MAKE THIS RED*-> HEADER, PAYLOAD SIGNATURE
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.*MAKE THIS RED*
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IklyZWsiLCJpYXQiOjE1MTYyMzkwMjJ9.
+MjHSMG585yN1uz8uIYiZGOAV2uBMFnHnnJdFUgqDyvs`
+
+Header 
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+Payload
+{
+  "sub": "1234567890",
+  "name": "Irek",
+  "iat": 1516239022
+}
+
+The last part `MjHSMG585yN1uz8uIYiZGOAV2uBMFnHnnJdFUgqDyvs` it is Payload Signature. Ensures that data has not been tempered with.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
