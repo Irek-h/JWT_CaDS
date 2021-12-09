@@ -1,9 +1,9 @@
 # JWT_CaDS_IO_JW
 Research about JWT (JSON Web Token)
 1. What is JWT?
-2. Where it is used? How to find it in browser console, and where it is stored on PC/client endpoint?
-3. Why is it used?
-4. Strong and weak parts (Pros and coins, from developer point of view - this is important since easy and performance optimal to use will lead to being more frequent used by developers, and as the popularity rises so does missconfiguration)
+2. How does JWT's authentication works?
+3. Strong and weak parts (Pros and coins, from developer point of view - this is important since easy and performance optimal to use will lead to being more frequent used by developers, and as the popularity rises so does missconfiguration)
+4. Known attacks
 5. PoC usage
 6. PoC crack
 7. Summary
@@ -51,7 +51,9 @@ base64UrlEncode(payload),
 secret)
 ```
 
-# 2. Where is JSON Web Token used?
+# 2. How does JWT's authentication works?
+
+The Payload Signature `MjHSMG585yN1uz8uIYiZGOAV2uBMFnHnnJdFUgqDyvs` is a hash (cannot be reverse engineered back to original plaintext), so if anyone would change any bit of data in Header or Payload the hash would be different and that would propmt error.
 
 
 
