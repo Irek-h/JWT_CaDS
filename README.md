@@ -28,7 +28,7 @@ Since JWT is a very commonly used in web/application developement there is alrea
 # 1. What is JSON Web Token?
 
 JSON Web Token also knows as JWT has found its way into all major web frameworks. It has simple, compact and easy to use architecture. Token has three parts _MAKE THIS RED_-> HEADER, PAYLOAD SIGNATURE
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.*MAKE THIS RED* eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IklyZWsiLCJpYXQiOjE1MTYyMzkwMjJ9. MjHSMG585yN1uz8uIYiZGOAV2uBMFnHnnJdFUgqDyvs`
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InVzZWxvbmdhbmRjb21wbGljYXRlZHBhc3N3b3JkIiwiaWF0IjoxNTE2MjM5MDIyfQ.pBq_Z_QwOhKJJuctpuCwMs4GbE3sBDsG4D4MQRutTuY`
 
 ```
 Header
@@ -40,7 +40,7 @@ Header
 Payload
 {
   "sub": "1234567890",
-  "name": "Irek",
+  "name": "uselongandcomplicatedpassword",
   "iat": 1516239022
 }
 ```
@@ -87,3 +87,22 @@ The most secure way to use JWT:
 - short-lived (minutes)
 
 This way is often not the most practical, so the misusage may lead to compromising the system's security.
+
+## 4. Known and most common attacks
+
+### 4.0 Sensitive information in Payload
+
+Base64 is not an encryption, so having sensitive information inside Payload is dangerous.
+
+## 5. Proof of concept - usage
+
+
+## 6. Proof of concept - craking
+
+Brute forcing the most commonly used symmetric algorithm HMACSHA256 is fairly easy, as long as password is not long and complicated it will be broken.
+![obraz](https://user-images.githubusercontent.com/82705344/147357754-2e22cabc-cc5d-412e-8c71-63a1abd3e898.png)
+![obraz](https://user-images.githubusercontent.com/82705344/147357878-cc80b8aa-e6de-4123-ba48-4aba74d4db1f.png)
+![obraz](https://user-images.githubusercontent.com/82705344/147357895-191df1eb-74e4-4b04-a0c9-465c1f4ce2cd.png)
+![obraz](https://user-images.githubusercontent.com/82705344/147358225-08a3c9d8-9bf5-4612-a5d4-bad54e1e1700.png)
+
+With known secret it's possible to change the payload and send it back knowing that it will pass veryfication. If attacker can  with modification of Payload, he can perform privilage escalation.
