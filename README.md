@@ -7,6 +7,7 @@ Research about JWT (JSON Web Token)
 2. How does JWT's authentication works?
 3. Strong and weak parts
 4. PoC crack
+5. Further reading
 
 # 0. Preface
 
