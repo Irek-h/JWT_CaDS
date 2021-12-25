@@ -2,24 +2,11 @@
 
 Research about JWT (JSON Web Token)
 
+0. Preface
 1. What is JWT?
 2. How does JWT's authentication works?
-3. Strong and weak parts (Pros and cons, from developer point of view - this is important since easy and performance optimal to use will lead to being more frequent used by developers, and as the popularity rises so does missconfiguration)
-4. Known attacks
-5. PoC usage
-6. PoC crack
-7. Summary
-   Links/topics to go through:
-
-- https://jwt.io/introduction
-- https://research.securitum.com/jwt-json-web-token-security/
-- https://blog.pentesteracademy.com/hacking-jwt-tokens-bruteforcing-weak-signing-key-jwt-cracker-5d49d34c44
-- https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html
-- https://www.softwaresecured.com/security-issues-jwt-authentication/
-- https://www.softwaresecured.com/security-issues-jwt-authentication/
-- symmetric vs assymetric
-
----
+3. Strong and weak parts
+4. PoC crack
 
 # 0. Preface
 
@@ -27,8 +14,11 @@ Since JWT is a very commonly used in web/application developement there is alrea
 
 # 1. What is JSON Web Token?
 
-JSON Web Token also knows as JWT has found its way into all major web frameworks. It has simple, compact and easy to use architecture. Token has three parts _MAKE THIS RED_-> HEADER, PAYLOAD SIGNATURE
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InVzZWxvbmdhbmRjb21wbGljYXRlZHBhc3N3b3JkIiwiaWF0IjoxNTE2MjM5MDIyfQ.pBq_Z_QwOhKJJuctpuCwMs4GbE3sBDsG4D4MQRutTuY`
+JSON Web Token also knows as JWT has found its way into all major web frameworks. It has simple, compact and easy to use architecture. Token has three parts Header, Payload & Signature - diveded by '.'
+
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InVzZWxvbmdhbmRjb21wbGljYXRlZHBhc3N3b3JkIiwiaWF0IjoxNTE2MjM5MDIyfQ.
+pBq_Z_QwOhKJJuctpuCwMs4GbE3sBDsG4D4MQRutTuY`
 
 ```
 Header
@@ -56,7 +46,9 @@ secret)
 
 # 2. How does JWT's authentication works?
 
-The Payload Signature `MjHSMG585yN1uz8uIYiZGOAV2uBMFnHnnJdFUgqDyvs` is a hash (cannot be reverse engineered back to original plaintext), so if anyone would change any bit of data in Header or Payload the hash would be different and that would propmt error.
+A common way to use JWTs is as OAuth bearer tokens. In this example, an authorization server creates a JWT at the request of a client and signs it so that it cannot be altered by any other party. The client will then send this JWT with its request to a REST API. The REST API will verify that the JWT’s signature matches its payload and header to determine that the JWT is valid. When the REST API has verified the JWT, it can use the claims to either grant or deny the client’s request.
+
+In simpler terms, you can think of a JWT bearer token as an identity badge to get into a secured building. The badge comes with special permissions; that is, it may grant access to only select areas of the building. The authorization server in this analogy is the reception desk — or the issuer of the badge. And to verify that the badge is valid, the company logo is printed on it, similar to the signature of the JWT. If the badge holder attempts to access a restricted area, the permissions on the badge determine whether or not they can access the area, similar to the claims in a JWT.
 
 # 3. Strong and weak parts
 
@@ -88,21 +80,22 @@ The most secure way to use JWT:
 
 This way is often not the most practical, so the misusage may lead to compromising the system's security.
 
-## 4. Known and most common attacks
+## 4. Proof of concept - craking
 
-### 4.0 Sensitive information in Payload
-
-Base64 is not an encryption, so having sensitive information inside Payload is dangerous.
-
-## 5. Proof of concept - usage
-
-
-## 6. Proof of concept - craking
-
+### Brute Force Secret
 Brute forcing the most commonly used symmetric algorithm HMACSHA256 is fairly easy, as long as password is not long and complicated it will be broken.
 ![obraz](https://user-images.githubusercontent.com/82705344/147357754-2e22cabc-cc5d-412e-8c71-63a1abd3e898.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/147357878-cc80b8aa-e6de-4123-ba48-4aba74d4db1f.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/147357895-191df1eb-74e4-4b04-a0c9-465c1f4ce2cd.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/147358225-08a3c9d8-9bf5-4612-a5d4-bad54e1e1700.png)
 
-With known secret it's possible to change the payload and send it back knowing that it will pass veryfication. If attacker can  with modification of Payload, he can perform privilage escalation.
+
+## 5. Further reading
+- https://jwt.io/introduction
+- https://www.akana.com/blog/what-is-jwt
+- https://research.securitum.com/jwt-json-web-token-security/
+- https://blog.pentesteracademy.com/hacking-jwt-tokens-bruteforcing-weak-signing-key-jwt-cracker-5d49d34c44
+- https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html
+- https://www.softwaresecured.com/security-issues-jwt-authentication/
+- https://github.com/ticarpi/jwt_tool
+- https://github.com/ticarpi/jwt_tool/wiki
