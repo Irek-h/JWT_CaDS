@@ -104,6 +104,24 @@ Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 m
 ###Security Concerns and Recommendation
 A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared-key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
 
+### C-jwt-crakcer
+https://github.com/brendan-rius/c-jwt-cracker
+![obraz](https://user-images.githubusercontent.com/82705344/148577361-63be1d26-84bf-48f5-9516-3e6f88e45bdc.png)
+
+HS384
+![obraz](https://user-images.githubusercontent.com/82705344/148579403-eb597b16-080d-4a6e-9ce2-994dc37e5c0a.png)
+![obraz](https://user-images.githubusercontent.com/82705344/148579439-90e50505-7ea1-445f-a894-fabf13996be8.png)
+
+HS512
+![obraz](https://user-images.githubusercontent.com/82705344/148579526-f76550bf-1aaa-43e1-9155-c12d8b11d057.png)
+![obraz](https://user-images.githubusercontent.com/82705344/148580260-e367d439-5d5e-4f3e-a80a-afc8687ca3d7.png)
+
+longer HS256
+![obraz](https://user-images.githubusercontent.com/82705344/148580375-49a782e7-c546-4663-8024-d984235f5d9d.png)
+![obraz](https://user-images.githubusercontent.com/82705344/148588679-5ef941d6-99ff-48ea-a8a2-455fc62897df.png)
+
+### Conclusion
+
 ## 5. Further reading
 - https://jwt.io/introduction
 - https://www.akana.com/blog/what-is-jwt
