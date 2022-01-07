@@ -141,9 +141,10 @@ HS384
 HS512
 ![obraz](https://user-images.githubusercontent.com/82705344/148546528-7087fc71-9109-48ec-a305-e1d3d2f157df.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/148546708-02be599e-fc65-4876-bf91-acc36e7f700f.png)
-HS256 - 8 digit secret
+HS256 - 8 char secret
 ![obraz](https://user-images.githubusercontent.com/82705344/148547462-4fa5331b-4199-42a3-b1d7-4a45c0b53a15.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/148554105-d579471b-f07a-4adf-870a-8bd9675fbab6.png)
+After 1h of constant work the process has been manually stopped.
 
 ### C-jwt-crakcer
 https://github.com/brendan-rius/c-jwt-cracker
@@ -158,9 +159,11 @@ HS512
 ![obraz](https://user-images.githubusercontent.com/82705344/148579526-f76550bf-1aaa-43e1-9155-c12d8b11d057.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/148580260-e367d439-5d5e-4f3e-a80a-afc8687ca3d7.png)
 
-longer HS256
+HS256 - 8 char secret
 ![obraz](https://user-images.githubusercontent.com/82705344/148580375-49a782e7-c546-4663-8024-d984235f5d9d.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/148588679-5ef941d6-99ff-48ea-a8a2-455fc62897df.png)
+
+After 1h of constant work the process has been manually stopped.
 
 ### Conclusion
 Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 makes it difficult to crack by brute force for the machine presented in the lab. However, most of the attacks will be performed on much stronger machines.
