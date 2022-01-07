@@ -85,11 +85,24 @@ This way is often not the most practical, so the misusage may lead to compromisi
 
 ### Brute Force Secret
 Brute forcing the most commonly used symmetric algorithm HMACSHA256 is fairly easy, as long as password is not long and complicated it will be broken.
+HS256
 ![obraz](https://user-images.githubusercontent.com/82705344/147357754-2e22cabc-cc5d-412e-8c71-63a1abd3e898.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/147357878-cc80b8aa-e6de-4123-ba48-4aba74d4db1f.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/147357895-191df1eb-74e4-4b04-a0c9-465c1f4ce2cd.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/147358225-08a3c9d8-9bf5-4612-a5d4-bad54e1e1700.png)
-
+HS384
+![obraz](https://user-images.githubusercontent.com/82705344/148546166-0f5bcdbe-8fdd-473b-86f4-eca232f1d286.png)
+![obraz](https://user-images.githubusercontent.com/82705344/148546445-08fba006-61d2-4367-a504-30971149a19a.png)
+HS512
+![obraz](https://user-images.githubusercontent.com/82705344/148546528-7087fc71-9109-48ec-a305-e1d3d2f157df.png)
+![obraz](https://user-images.githubusercontent.com/82705344/148546708-02be599e-fc65-4876-bf91-acc36e7f700f.png)
+HS256 - 8 digit secret
+![obraz](https://user-images.githubusercontent.com/82705344/148547462-4fa5331b-4199-42a3-b1d7-4a45c0b53a15.png)
+![obraz](https://user-images.githubusercontent.com/82705344/148554105-d579471b-f07a-4adf-870a-8bd9675fbab6.png)
+### Conclusion
+Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 makes it difficult to crack by brute force for the typical user. However, most of the attacks will be performed on stronger machines.
+###Security Concerns and Recommendation
+A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared-key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
 
 ## 5. Further reading
 - https://jwt.io/introduction
