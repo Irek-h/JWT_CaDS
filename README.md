@@ -15,35 +15,73 @@ Since JWT is a very commonly used in web/application developement there is alrea
 
 # 1. What is JSON Web Token?
 
-JSON Web Token also knows as JWT has found its way into all major web frameworks. It has simple, compact and easy to use architecture. Token has three parts Header, Payload & Signature - diveded by '.'
+JSON Web Token also knows as JWT is an open standard (RFC 7519) that specifies how data can be securely transmitted between pages using a JSON object. The digital signature included with the token allows the information delivered to be verified.
+The JWT is signed with a signature, either using the HMAC algorithm or an RSA or ECDSA public/private key. JWT has found its way into all major web frameworks. It has simple, compact and easy to use architecture. 
 
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InVzZWxvbmdhbmRjb21wbGljYXRlZHBhc3N3b3JkIiwiaWF0IjoxNTE2MjM5MDIyfQ.
-pBq_Z_QwOhKJJuctpuCwMs4GbE3sBDsG4D4MQRutTuY`
+## When to use?
+
+There are two most common scenarios when JSON Web Tokens are useful:
+
+ - **Authorization** - after successful user login, each request sent to API contains the JWT which is associated witch specific resources access permissions. JWT is often used in Single Sign-on features that allow to gain access to several independent, yet related, software systems after single log in
+- **Data transmission** - when we want to send information between parties and we need to be confident that the sender is who they claims they are and that the data they deliver has not been altered. We can verify this since the JWT includes a digital signature.
+
+## Architecture
+
+Token has three parts **Header**, **Payload** & **Signature** - diveded by '.' 
+  
 
 ```
-Header
-{
- "alg": "HS256",
- "typ": "JWT"
- }
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InVzZWxvbmdhbmRjb21wbGljYXRlZHBhc3N3b3JkIiwiaWF0IjoxNTE2MjM5MDIyfQ
+.
+pBq_Z_QwOhKJJuctpuCwMs4GbE3sBDsG4D4MQRutTuY
+```
 
-Payload
+### Header
+
+The header contains information about the type of the token - JWT and what algorithm we use - HMAC SHA256 or RSA.
+
+Example:
+```
 {
-  "sub": "1234567890",
-  "name": "uselongandcomplicatedpassword",
-  "iat": 1516239022
+	"alg": "HS256",
+	"typ": "JWT"
 }
 ```
 
-The last part `MjHSMG585yN1uz8uIYiZGOAV2uBMFnHnnJdFUgqDyvs` it is Payload Signature. Ensures that data has not been tempered with. In our case the algorithm for it is "Hash-based Message Authentication Code" as specified in Header `"alg" : "HS256"`. The Payload Signature is created in the following way:
+### Payload
+
+This part is responsible for storing the data that we want to send in the token. Usually the data is about the user. JWT distinguishes three types of information included in payload: 
+ - **registered claims** -  set of preconfigured claims that are not required but are recommended in order to give a set of relevant, interoperable claims. Some examples include: iss (issuer), exp (expiration date), sub (topic), aud (audience) 
+ - **public claims** - they can be defined at will by those using JWTs, but in order to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that includes a collision resistant namespace.
+ - **private claims** - custom claims created to share information between parties that agree on using them and are neither registered or public claims.
+
+ Example:
+``` 
+{
+	"sub": "1234567890",
+	"name": "uselongandcomplicatedpassword",
+	"iat": 1516239022
+}
+```
+### Signature
+  
+The signature ensures that data has not been tempered with. In the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is. In our case the algorithm for it is "Hash-based Message Authentication Code" as specified in Header `"alg" : "HS256"`. The Signature is created in the following way:
 
 ```
 HMACSHA256(
-base64UrlEncode(header) + "." +
-base64UrlEncode(payload),
-secret)
+	base64UrlEncode(header) + "." +
+	base64UrlEncode(payload),
+	secret)
 ```
+### The whole token
+
+The final token consists of header JSON and payload JSON, both encoded with Base64Url, and signature which is created from encoding header and payload with secret in choosen signing algorithm.
+
+Example JWT created in [jwt.io Debugger](https://jwt.io/#debugger-io):
+![image](https://user-images.githubusercontent.com/32808627/148589206-8d66fc87-70c9-4a27-9ba0-832c68b105e2.png)
+
 
 # 2. How does JWT's authentication works?
 
