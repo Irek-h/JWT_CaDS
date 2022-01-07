@@ -80,6 +80,7 @@ HMACSHA256(
 The final token consists of header JSON and payload JSON, both encoded with Base64Url, and signature which is created from encoding header and payload with secret in choosen signing algorithm.
 
 Example JWT created in [jwt.io Debugger](https://jwt.io/#debugger-io):
+
 ![image](https://user-images.githubusercontent.com/32808627/148589206-8d66fc87-70c9-4a27-9ba0-832c68b105e2.png)
 
 
