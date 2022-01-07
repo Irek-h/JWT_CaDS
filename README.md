@@ -124,6 +124,10 @@ This way is often not the most practical, so the misusage may lead to compromisi
 
 ## 4. Proof of concept - craking
 
+### Lab machine
+Machine used in cracking has Kali as operating system and following parameters:
+![obraz](https://user-images.githubusercontent.com/82705344/148592865-07467b65-dc55-4590-ad8e-0971d0067533.png)
+
 ### Brute Force Secret
 Brute forcing the most commonly used symmetric algorithm HMACSHA256 is fairly easy, as long as password is not long and complicated it will be broken.
 HS256
@@ -140,13 +144,10 @@ HS512
 HS256 - 8 digit secret
 ![obraz](https://user-images.githubusercontent.com/82705344/148547462-4fa5331b-4199-42a3-b1d7-4a45c0b53a15.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/148554105-d579471b-f07a-4adf-870a-8bd9675fbab6.png)
-### Conclusion
-Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 makes it difficult to crack by brute force for the typical user. However, most of the attacks will be performed on stronger machines.
-###Security Concerns and Recommendation
-A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared-key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
 
 ### C-jwt-crakcer
 https://github.com/brendan-rius/c-jwt-cracker
+![obraz](https://user-images.githubusercontent.com/82705344/148592355-86372201-4447-4d16-ba8a-70ac0a3f2d39.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/148577361-63be1d26-84bf-48f5-9516-3e6f88e45bdc.png)
 
 HS384
@@ -162,6 +163,11 @@ longer HS256
 ![obraz](https://user-images.githubusercontent.com/82705344/148588679-5ef941d6-99ff-48ea-a8a2-455fc62897df.png)
 
 ### Conclusion
+Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 makes it difficult to crack by brute force for the machine presented in the lab. However, most of the attacks will be performed on much stronger machines.
+### Security Concerns and Recommendation
+A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared-key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
+
+It is imporntant to notice that brute force attacks happen in the wild all the time, so having bad password policy will eventually lead to exploitation. That includes both low entropy passwords and leaked password vulnerable to dictionary atttacks.
 
 ## 5. Further reading
 - https://jwt.io/introduction
