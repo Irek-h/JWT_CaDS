@@ -2,7 +2,6 @@
 
 Research about JWT (JSON Web Token)
 
-0. Preface
 1. What is JWT?
 2. How does JWT's authentication works?
 3. Involved encryption mechanisms
@@ -10,12 +9,6 @@ Research about JWT (JSON Web Token)
 5. Possible threats
 6. PoC crack
 7. Further reading
-
-# 0. Preface
-
-Since JWT is a very commonly used in web/application developement there is already a surplus of documentation in every format (youtube videos, online labs, books). Hence no need to create another wall of text with scrapes of information gathered from different sources in belief that this one will be better.
-
-Therefore aim of this is to gather key aspects, put them in one place and based on those, perform proof of concept in usage and cracking. The last part _cracking_ is the main input of this article, motivated by the fact that cracking aspect of JWT is very often badly showcased.
 
 # 1. What is JSON Web Token?
 
@@ -310,7 +303,7 @@ Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 m
 
 A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared-key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
 
-It is imporntant to notice that brute force attacks happen in the wild all the time, so having bad password policy will eventually lead to exploitation. That includes both low entropy passwords and leaked password vulnerable to dictionary atttacks.
+It is imporntant to notice that brute force attacks happen in the wild all the time, so having bad password policy will eventually lead to exploitation. That includes both low entropy passwords and password vulnerable to dictionary atttacks & rainbow table attacks.
 
 
 
