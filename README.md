@@ -57,6 +57,8 @@ Example:
 
 Here are possible algorithms options that can be used (screenshot from [jwt.io Debugger](https://jwt.io/#debugger-io)):
 
+![image](https://user-images.githubusercontent.com/32808627/148641945-b95d085f-3e81-48f6-93b0-8945b6820089.png)
+
 ### Payload
 
 This part is responsible for storing the data that we want to send in the token. Usually the data is about the user. JWT distinguishes three types of information included in payload:
