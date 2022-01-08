@@ -119,7 +119,7 @@ The HMAC algorithm stands for Hash-based Message Authentication Code. It is a MA
 
 As a hash function, HMAC is intended to be one-way, i.e. easy to generate output from the input, but complex the other way around. Its goal is to be less influenced by collisions than hash functions.
 
-HMAC reuses algorithms such as MD5 and SHA-1 and examines to see if the embedded hash functions can be replaced with more secure hash functions. HMAC attempts to manage Keys in a more simple manner.
+HMAC reuses algorithms such as MD5 and SHA-1 and examines to see if the embedded hash functions can be replaced with more secure hash functions. HMAC attempts to manage keys in a more simple manner.
 The algorithm definition is as follows:
 
 ![image](https://user-images.githubusercontent.com/32808627/148637774-e024efd8-bd28-4916-99b5-86bd058969c0.png)
@@ -129,6 +129,7 @@ where:
 - H - cryptographic hash function
 - K - the secret key
 - K' - is a block-sized key derived from the secret key, K; either by padding to the right with 0s up to the block size, or by hashing down to less than or equal to the block size first and then padding to the right with zeros
+- m - message to encrypt
 - opad - the block-sized outer padding, consisting of repeated bytes valued 0x5c
 - ipad - the block-sized inner padding, consisting of repeated bytes valued 0x36
 
