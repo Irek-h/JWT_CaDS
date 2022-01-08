@@ -264,6 +264,13 @@ That is why it should never be allowed tokens with algorithms such as "None", "N
 ## Paramater incjections
 
 If it is possible to inject paramater, such as Key Id "kid" in the header. Attacker may gain a way to directory traversal or inject code, which is critical vulnerability. It is also possible to create SQL injection possibility via parameter. For this reasons parameters should be sanitized.
+```
+{
+	"alg": "HS256",
+	"typ": "JWT"
+	"kid": "../../../../../../etc/shadow"
+}
+```
 
 # 6. Proof of concept - craking
 
