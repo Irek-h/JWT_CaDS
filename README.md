@@ -12,16 +12,16 @@ Research about JWT (JSON Web Token)
 
 # 1. What is JSON Web Token?
 
-JSON Web Token also knows as JWT is an open standard (RFC 7519) that specifies how data can be securely transmitted between pages using a JSON object. The digital signature included with the token allows the information delivered to be verified.
+JSON Web Token, also known as JWT, is an open standard (RFC 7519) that specifies how data can be securely transmitted between pages using a JSON object. The digital signature included with the token allows the information delivered to be verified.
 
-The JWT is signed with a signature, either using the HMAC algorithm or an RSA or ECDSA public/private key. JWT has found its way into all major web frameworks. It has simple, compact and easy to use architecture.
+The JWT is signed with a signature, either using the HMAC algorithm or an RSA or ECDSA public/private key. JWT has found its way into all major web frameworks. It has simple, compact, and easy-to-use architecture.
 
 ## When to use?
 
 There are two most common scenarios when JSON Web Tokens are useful:
 
-- **Authorization** - after successful user login, each request sent to API contains the JWT which is associated witch specific resources access permissions. JWT is often used in Single Sign-on features that allow to gain access to several independent, yet related, software systems after single log in
-- **Data transmission** - when we want to send information between parties and we need to be confident that the sender is who they claims they are and that the data they deliver has not been altered. We can verify this since the JWT includes a digital signature.
+- **Authorization** - after successful user login, each request sent to API contains the JWT which is associated with specific resources access permissions. JWT is often used in Single Sign-on features that allow gaining access to several independent, yet related, software systems after a single login
+- **Data transmission** - when we want to send information between parties and we need to be confident that the sender is who they claim they are and that the data they deliver has not been altered. We can verify this since the JWT includes a digital signature.
 
 ## Architecture
 
@@ -54,7 +54,7 @@ Here are possible algorithms options that can be used (screenshot from [jwt.io D
 
 ### Payload
 
-This part is responsible for storing the data that we want to send in the token. Usually the data is about the user. JWT distinguishes three types of information included in payload:
+This part is responsible for storing the data that we want to send in the token. Usually, the data is about the user. JWT distinguishes three types of information included in the payload:
 
 - **registered claims** - set of preconfigured claims that are not required but are recommended in order to give a set of relevant, interoperable claims. Some examples include: iss (issuer), exp (expiration date), sub (topic), aud (audience)
 - **public claims** - they can be defined at will by those using JWTs, but in order to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that includes a collision resistant namespace.
@@ -72,7 +72,7 @@ Example:
 
 ### Signature
 
-The signature ensures that data has not been tempered with. In the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is. In our case the algorithm for it is "Hash-based Message Authentication Code" as specified in Header `"alg" : "HS256"`. The Signature is created in the following way:
+The signature ensures that data has not been tampered with. In the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is. In our case, the algorithm for it is "Hash-based Message Authentication Code" as specified in Header `"alg": "HS256"`. The Signature is created in the following way:
 
 ```
 HMACSHA256(
@@ -81,11 +81,11 @@ HMACSHA256(
 	secret)
 ```
 
-JSON Web Token can be signed using a key known to both parties (secret) and the HMAC algorithm or with the use of a private / public key pair (RSA or ECDSA algorithms).
+JSON Web Token can be signed using a key known to both parties (secret) and the HMAC algorithm or with the use of a private/public key pair (RSA or ECDSA algorithms).
 
 ### The whole token
 
-The final token consists of header JSON and payload JSON, both encoded with Base64Url, and signature which is created from encoding header and payload in choosen signing algorithm.
+The final token consists of header JSON and payload JSON, both encoded with Base64Url, and signature which is created from encoding header and payload in chosen signing algorithm.
 
 Example JWT created in [jwt.io Debugger](https://jwt.io/#debugger-io):
 
@@ -93,7 +93,7 @@ Example JWT created in [jwt.io Debugger](https://jwt.io/#debugger-io):
 
 # 2. How does JWT's authentication works?
 
-A common way to use JWTs is as OAuth bearer tokens. An authorization server creates a JWT after successful user login and signs it so that it cannot be altered by any other party. The client will then send this JWT with its request to a API when they will want to accessed protected resources or routes. The API will verify that the JWT’s signature matches its payload and header to determine that the JWT is valid. When the server has verified the JWT, it can use the claims to either grant or deny the client’s request.
+A common way to use JWTs is as OAuth bearer tokens. An authorization server creates a JWT after successful user login and signs it so that it cannot be altered by any other party. The client will then send this JWT with its request to an API when they will want to access protected resources or routes. The API will verify that the JWT’s signature matches its payload and header to determine that the JWT is valid. When the server has verified the JWT, it can use the claims to either grant or deny the client’s request.
 
 ![image](https://user-images.githubusercontent.com/32808627/148637736-dec3d908-7dbf-407e-b7be-d96fdc0a6956.png)
 
@@ -105,7 +105,7 @@ Encryption in JWT is used to sign the token, i.e. create the signature. It is po
 
 ## Symmetric encryption
 
-Symmetric encryption algorithms rely on a single key that is shared by two or more users. The same key is used to encrypt and decrypt a so-called plaintext that represents the message or data that is being encoded. The encryption process involves literally passing plaintext (input) through an encryption algorithm called a cipher, which in turn generates ciphertext (output).
+Symmetric encryption algorithms rely on a single key that is shared by two or more users. The same key is used to encrypt and decrypt a so-called plaintext that represents the message or data that is being encoded. The encryption process involves literally passing plaintext (input) through an encryption algorithm called a cipher, which in turn generates the ciphertext (output).
 
 If the encryption algorithm is strong enough, the only way to read the message or access the ciphertext information is to use the appropriate decryption key. The decryption process essentially converts the ciphertext back to plaintext.
 
@@ -119,7 +119,7 @@ The HMAC algorithm stands for Hash-based Message Authentication Code. It is a MA
 
 As a hash function, HMAC is intended to be one-way, i.e. easy to generate output from the input, but complex the other way around. Its goal is to be less influenced by collisions than hash functions.
 
-HMAC reuses algorithms such as MD5 and SHA-1 and examines to see if the embedded hash functions can be replaced with more secure hash functions. HMAC attempts to manage Keys in a more simple manner.
+HMAC reuses algorithms such as MD5 and SHA-1 and examines to see if the embedded hash functions can be replaced with more secure hash functions. HMAC attempts to manage keys in a more simple manner.
 The algorithm definition is as follows:
 
 ![image](https://user-images.githubusercontent.com/32808627/148637774-e024efd8-bd28-4916-99b5-86bd058969c0.png)
@@ -128,7 +128,8 @@ where:
 
 - H - cryptographic hash function
 - K - the secret key
-- K' - is a block-sized key derived from the secret key, K; either by padding to the right with 0s up to the block size, or by hashing down to less than or equal to the block size first and then padding to the right with zeros
+- K' - is a block-sized key derived from the secret key, K; either by padding to the right with 0s up to the block size or by hashing down to less than or equal to the block size first and then padding to the right with zeros
+- m - message to encrypt
 - opad - the block-sized outer padding, consisting of repeated bytes valued 0x5c
 - ipad - the block-sized inner padding, consisting of repeated bytes valued 0x36
 
@@ -136,7 +137,7 @@ where:
 
 In asynchronous encryption algorithms, the public key is used by the sender to encrypt the information, while the private key is used by the receiver to decrypt that information. Since the two keys are different, the public key can be securely shared without compromising the security of accessing the private key.
 
-Each asymmetric pair of keys is unique, so that a message encrypted with a public key can only be read by a person who has the corresponding private key.
+Each asymmetric pair of keys is unique so that a message encrypted with a public key can only be read by a person who has the corresponding private key.
 
 Since the algorithms for asymmetric encryption generate pairs of keys that are mathematically related to each other, the keys generated in this way are much longer than the keys generated using symmetric cryptography. Their length - typically between 1024 and 2048 bits - makes it extremely difficult to compute a private key from its public counterpart.
 
@@ -173,7 +174,7 @@ ECDSA, or Elliptic Curve Digital Signature Algorithm, is one of the most complic
 
 Elliptic curve cryptography is mostly used to generate pseudo-random numbers, digital signatures, and other data. A digital signature is a type of authentication that uses a public key pair and a digital certificate as a signature to validate the identity of a receiver or sender of information.
 
-A main feature of ECDSA versus another popular algorithm, RSA, is that ECDSA provides a higher degree of security with shorter key lengths. A drawback of ECDSA is that it is complex to implement, whereas RSA is more easily set-up in comparison.
+The main feature of ECDSA versus another popular algorithm, RSA, is that ECDSA provides a higher degree of security with shorter key lengths. A drawback of ECDSA is that it is complex to implement, whereas RSA is more easily set up in comparison.
 
 # 4. Strong and weak parts
 
@@ -191,7 +192,7 @@ JWT is a good choice in case of authorization or information exchange and API au
 - The biggest disadvantage of JWT is the fact that it relies only on one key. If this secret key is badly handled by the developer or administrator, it will probably lead to a breach of the system security and leakage of the users' data.
 - JWT data encryption relies on a signing algorithm that can be exploited or become deprecated.
 - There is no possibility of managing clients from the server. For example, there is no easy way to log the user out of all sessions, because they would have to delete the cookies, and removing existing user id from the database causes dangling pointers. And due to the lack of records of the logged users on the database end, there is no possibility to push messages to all clients.
-- Storing a lot of data in JWT makes it linearly longer, which may cause data overhead because the token has to be sent in with each request. In the case of low-speed internet connection, it means longer loading time and bad user experience.
+- Storing a lot of data in JWT makes it linearly longer, which may cause data overhead because the token has to be sent in with each request. In the case of a low-speed internet connection, it means a longer loading time and a bad user experience.
 - Securely using JWT requires basic knowledge of cryptography. A developer that doesn’t understand how the tokens work may introduce security loopholes in the system and compromise the data security.
 
 ## Conclusion
@@ -207,7 +208,7 @@ This way is often not the most practical, so the misusage may lead to compromisi
 
 # 5. Possible threats
 
-Assuming that JWT is not used obviously incorrectly, such as without signing, most attacks against it focus on cracking passwords with too low entropy. In symmetric encryption, the signature is as strong as the secret used. If the password is too simple, attacker can use brute-force to check whether different values match the signature, and after finding the correct secret, use it to generate malicious tokens.
+Assuming that JWT is not used obviously incorrectly, such as without signing, most attacks against it focus on cracking passwords with too low entropy. In symmetric encryption, the signature is as strong as the secret used. If the password is too simple, an attacker can use brute-force to check whether different values match the signature, and after finding the correct secret, use it to generate malicious tokens.
 
 ## Password entropy
 
@@ -229,29 +230,29 @@ Password entropy is expressed in bits. According to one study involving half a m
 
 A Key Derivation Function (KDF) is a cryptographic algorithm that derives one or more secret keys from a secret value. All hash-based KDFs are secure hash functions, but not all hash functions are hashed-based KDFs.
 
-In cryptography, often passwords are used instead of binary keys, because passwords are easier to remember, write down, and can be shorter. Using a password is problematic, because even if the passphrase contains good amount of randomness, it is not distributed evenly, which gives attacker partial knowledge, that can become the starting point for cracking the password.
+In cryptography, often passwords are used instead of binary keys, because passwords are easier to remember, write down, and can be shorter. Using a password is problematic because even if the passphrase contains a good amount of randomness, it is not distributed evenly, which gives the attacker partial knowledge, that can become the starting point for cracking the password.
 
-When a certain algorithm needs a key (e.g. for signing JWT) a key derivation function is needed. It allows to transform password into key. For this purpose they use salts (random numbers, different for each key) along with multiple iterations to generate more secure keys. This process is called key-stretching, and slows down the password cracking attempts.
+When a certain algorithm needs a key (e.g. for signing JWT) a key derivation function is needed. It allows transforming the password into the key. For this purpose, they use salts (random numbers, different for each key) along with multiple iterations to generate more secure keys. This process is called "key stretching", and slows down the password cracking attempts.
 
 ## Dictionary attacks
 
 Dictionary attacks are a type of brute-force attack, one of the oldest but still common hacking techniques. Brute force is a method of breaking passwords and cryptographic keys by repeatedly entering various combinations of characters - until a specific password is revealed. This method works best for short and simple passwords.
 
-Dictionary attacks are based on the use of words that appear frequently in everyday speech. In practice, the method is based on the use of dictionaries of popular phrases or expressions. A special brute-force algorithm uses a specific variable (e.g. a previously known login from a database of basic logins or data disclosed after a large leak) to create password ideas for specific users. In case of hashed passwords, all possible hashes are precomputed and then tried in turn. That is why, for the sake of safety, it is not recommended to use, for example, dates of birth or common words or phrases.
+Dictionary attacks are based on the use of words that appear frequently in everyday speech. In practice, the method is based on the use of dictionaries of popular phrases or expressions. A special brute-force algorithm uses a specific variable (e.g. a previously known login from a database of basic logins or data disclosed after a large leak) to create password ideas for specific users. In the case of hashed passwords, all possible hashes are precomputed and then tried in turn. That is why, for the sake of safety, it is not recommended to use, for example, dates of birth or common words or phrases.
 
 ## Rainbow table attacks
 
-This type of attack, in contrast to a dictionary attack, is based on working backwards from the hashed text.
+This type of attack, in contrast to a dictionary attack, is based on working backward from the hashed text.
 A rainbow table is a precomputed list of hashes and the passwords from which they were calculated. The rainbow table is optimized for hashes and passwords and thus achieves great space optimization while still maintaining good look-up speed. But in essence, it's just a dictionary.
 
 After attacker gains the access to password hashes, they can check if any of them is in the rainbow table.
-Of course, it is impossible to store all hashes in a table. But if passphrases use simple words and they were hashed just once, there is a large possibility that a good rainbow able will contain the password.
+Of course, it is impossible to store all hashes on a table. But if passphrases use simple words and they were hashed just once, there is a large possibility that a good rainbow able will contain the password.
 
 The term "rainbow table" refers to the way different reduction functions are used in each column of the table to increase the success rate of the attack. When colors are used to represent the reduction functions, a rainbow appears in the rainbow table.
 
-## Allowing None as legitimate algorithm
+## Allowing None as a legitimate algorithm
 
-If developer lets "None" be permitted as the algorithm value, an attacker can simply use it to replace the valid algorithm and then get rid of the signature
+If the developer lets "None" be permitted as the algorithm value, an attacker can simply use it to replace the valid algorithm and then get rid of the signature
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 .
@@ -263,7 +264,7 @@ That is why it should never be allowed tokens with algorithms such as "None", "N
 	
 ## Paramater incjections
 
-If it is possible to inject paramater, such as Key Id "kid" in the header. Attacker may gain a way to directory traversal or inject code, which is critical vulnerability. It is also possible to create SQL injection possibility via parameter. For this reasons parameters should be sanitized.
+If it is possible to inject a parameter, such as Key Id "kid" in the header. An attacker may gain a way to directory traversal or inject code, which is a critical vulnerability. It is also possible to create SQL injection possibility via parameter. For these reasons, parameters should be sanitized.
 ```
 {
 	"alg": "HS256",
@@ -276,12 +277,12 @@ If it is possible to inject paramater, such as Key Id "kid" in the header. Attac
 
 ### Lab machine
 
-Machine used in cracking has Kali as operating system and following parameters:
+Machine used in cracking has Kali as the operating system and the following parameters:
 ![obraz](https://user-images.githubusercontent.com/82705344/148592865-07467b65-dc55-4590-ad8e-0971d0067533.png)
 
 ### Brute Force Secret
 
-Brute forcing the most commonly used symmetric algorithm HMACSHA256 is fairly easy, as long as password is not long and complicated it will be broken.
+Brute forcing the most commonly used symmetric algorithm HMACSHA256 is fairly easy, as long as the password is not long and complicated it will be broken.
 HS256
 ![obraz](https://user-images.githubusercontent.com/82705344/147357754-2e22cabc-cc5d-412e-8c71-63a1abd3e898.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/147357878-cc80b8aa-e6de-4123-ba48-4aba74d4db1f.png)
@@ -316,17 +317,17 @@ HS256 - 8 char secret
 ![obraz](https://user-images.githubusercontent.com/82705344/148580375-49a782e7-c546-4663-8024-d984235f5d9d.png)
 ![obraz](https://user-images.githubusercontent.com/82705344/148588679-5ef941d6-99ff-48ea-a8a2-455fc62897df.png)
 
-After 1h of constant work the process has been manually stopped.
+After 1h of constant work, the process has been manually stopped.
 
 ### Conclusion
 
-Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 makes it difficult to crack by brute force for the machine presented in the lab. However, most of the attacks will be performed on much stronger machines and with different setup. Hashcat extension https://github.com/hashtopolis/server provides ability to use multiple machines to substancly increase computing power to the point where low entropy password will break. 
+Secret having 4 digits can be broken in several seconds. Increasing length to 8 makes it difficult to crack by brute force for the machine presented in the lab. However, most of the attacks will be performed on much stronger machines and with a different setup. Hashcat extension https://github.com/hashtopolis/server provides the ability to use multiple machines to substantially increase computing power to the point where low entropy passwords will break. 
 
 ### Security Concerns and Recommendation
 
-A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared-key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
+A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
 
-It is imporntant to notice that brute force attacks happen in the wild all the time, so having bad password policy will eventually lead to exploitation. That includes both low entropy passwords and password vulnerable to dictionary atttacks & rainbow table attacks.
+It is important to notice that brute force attacks happen in the wild all the time, so having a bad password policy will eventually lead to exploitation. That includes both low entropy passwords and passwords vulnerable to dictionary attacks & rainbow table attacks.
 
 
 
