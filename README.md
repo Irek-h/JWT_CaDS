@@ -304,13 +304,15 @@ After 1h of constant work the process has been manually stopped.
 
 ### Conclusion
 
-Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 makes it difficult to crack by brute force for the machine presented in the lab. However, most of the attacks will be performed on much stronger machines.
+Secret having 4 digit can be broken in several secounds. Incresing lenght to 8 makes it difficult to crack by brute force for the machine presented in the lab. However, most of the attacks will be performed on much stronger machines and with different setup. Hashcat extension https://github.com/hashtopolis/server provides ability to use multiple machines to substancly increase computing power to the point where low entropy password will break. 
 
 ### Security Concerns and Recommendation
 
 A key of the same size as the hash output (for instance, 256 bits for "HS256") or larger MUST be used with this algorithm. NIST SP 800-117 states that the effective security strength is the minimum of the security strength of the key and two times the size of the internal hash value. As a rule of thumb, make sure to pick a shared-key as long as the length of the hash. For HS256 that would be a 256-bit key (or 32 bytes) minimum.
 
 It is imporntant to notice that brute force attacks happen in the wild all the time, so having bad password policy will eventually lead to exploitation. That includes both low entropy passwords and leaked password vulnerable to dictionary atttacks.
+
+
 
 # 7. Further reading
 
