@@ -96,8 +96,7 @@ A common way to use JWTs is as OAuth bearer tokens. An authorization server crea
 
 In simpler terms, you can think of a JWT bearer token as an identity badge to get into a secured building. The badge comes with special permissions; that is, it may grant access to only select areas of the building. The authorization server in this analogy is the reception desk — or the issuer of the badge. And to verify that the badge is valid, the company logo is printed on it, similar to the signature of the JWT. If the badge holder attempts to access a restricted area, the permissions on the badge determine whether or not they can access the area, similar to the claims in a JWT.
 
-OBRAZEK
-![image](https://user-images.githubusercontent.com/32808627/148589420-776e7b63-4ea2-4db2-a225-7ed86cf64ccf.png)
+![image](https://user-images.githubusercontent.com/32808627/148637736-dec3d908-7dbf-407e-b7be-d96fdc0a6956.png)
 
 # 3. Involved encryption mechanisms
 
@@ -111,7 +110,7 @@ If the encryption algorithm is strong enough, the only way to read the message o
 
 The security of symmetric encryption algorithms is directly related to how difficult it is to randomly guess the corresponding key. For example, in the case of a 128-bit key, it takes billions of years to be able to guess it correctly (using modern computer hardware). Generally speaking, the longer the key is, the harder it is to break it. Keys as long as 256 bits are generally considered to be highly secure.
 
-OBRAZEK
+![image](https://user-images.githubusercontent.com/32808627/148637747-45294cf1-e7ad-402b-8bc4-11c2acd863ea.png)
 
 ### HMAC
 
@@ -120,7 +119,7 @@ As a hash function, HMAC is intended to be one-way, i.e. easy to generate output
 HMAC reuses algorithms such as MD5 and SHA-1 and examines to see if the embedded hash functions can be replaced with more secure hash functions. HMAC attempts to manage Keys in a more simple manner.
 The algorithm definition is as follows:
 
-OBRAZEK
+![image](https://user-images.githubusercontent.com/32808627/148637774-e024efd8-bd28-4916-99b5-86bd058969c0.png)
 
 where:
 
@@ -138,7 +137,7 @@ Each asymmetric pair of keys is unique, so that a message encrypted with a publi
 
 Since the algorithms for asymmetric encryption generate pairs of keys that are mathematically related to each other, the keys generated in this way are much longer than the keys generated using symmetric cryptography. Their length - typically between 1024 and 2048 bits - makes it extremely difficult to compute a private key from its public counterpart.
 
-OBRAZEK
+![image](https://user-images.githubusercontent.com/32808627/148637986-bc91728f-85ee-41da-9301-1a6734c47bda.png)
 
 ### RSA
 
