@@ -48,9 +48,11 @@ Example:
 }
 ```
 
-Here are possible algorithms options that can be used (screenshot from [jwt.io Debugger](https://jwt.io/#debugger-io)):
+Here are possible algorithms options that can be used:
 
-![image](https://user-images.githubusercontent.com/32808627/148641945-b95d085f-3e81-48f6-93b0-8945b6820089.png)
+| ![image](https://user-images.githubusercontent.com/32808627/148641945-b95d085f-3e81-48f6-93b0-8945b6820089.png) | 
+|:--:| 
+| Screenshot from [jwt.io Debugger](https://jwt.io/#debugger-io) |
 
 ### Payload
 
@@ -89,7 +91,9 @@ The final token consists of header JSON and payload JSON, both encoded with Base
 
 Example JWT created in [jwt.io Debugger](https://jwt.io/#debugger-io):
 
-![image](https://user-images.githubusercontent.com/32808627/148589206-8d66fc87-70c9-4a27-9ba0-832c68b105e2.png)
+| ![image](https://user-images.githubusercontent.com/32808627/148589206-8d66fc87-70c9-4a27-9ba0-832c68b105e2.png) | 
+|:--:| 
+| Screenshot from [jwt.io Debugger](https://jwt.io/#debugger-io) |
 
 # 2. How does JWT's authentication works?
 
@@ -122,7 +126,9 @@ As a hash function, HMAC is intended to be one-way, i.e. easy to generate output
 HMAC reuses algorithms such as MD5 and SHA-1 and examines to see if the embedded hash functions can be replaced with more secure hash functions. HMAC attempts to manage keys in a more simple manner.
 The algorithm definition is as follows:
 
-![image](https://user-images.githubusercontent.com/32808627/148637774-e024efd8-bd28-4916-99b5-86bd058969c0.png)
+| ![image](https://user-images.githubusercontent.com/32808627/148637774-e024efd8-bd28-4916-99b5-86bd058969c0.png) | 
+|:--:| 
+| Image from [Wikipedia](https://en.wikipedia.org/wiki/HMAC) |
 
 where:
 
