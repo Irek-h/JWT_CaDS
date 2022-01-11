@@ -99,7 +99,9 @@ Example JWT created in [jwt.io Debugger](https://jwt.io/#debugger-io):
 
 A common way to use JWTs is as OAuth bearer tokens. An authorization server creates a JWT after successful user login and signs it so that it cannot be altered by any other party. The client will then send this JWT with its request to an API when they will want to access protected resources or routes. The API will verify that the JWT’s signature matches its payload and header to determine that the JWT is valid. When the server has verified the JWT, it can use the claims to either grant or deny the client’s request.
 
-![image](https://user-images.githubusercontent.com/32808627/148637736-dec3d908-7dbf-407e-b7be-d96fdc0a6956.png)
+| ![image](https://user-images.githubusercontent.com/32808627/148637736-dec3d908-7dbf-407e-b7be-d96fdc0a6956.png) | 
+|:--:| 
+| Self-created resource. [draw.io file](https://github.com/Irek-h/JWT_CaDS/blob/main/pictures.drawio) |
 
 In simpler terms, you can think of a JWT bearer token as an identity badge to get into a secured building. The badge comes with special permissions; that is, it may grant access to only select areas of the building. The authorization server in this analogy is the reception desk — or the issuer of the badge. And to verify that the badge is valid, the company logo is printed on it, similar to the signature of the JWT. If the badge holder attempts to access a restricted area, the permissions on the badge determine whether or not they can access the area, similar to the claims in a JWT.
 
@@ -115,7 +117,9 @@ If the encryption algorithm is strong enough, the only way to read the message o
 
 The security of symmetric encryption algorithms is directly related to how difficult it is to randomly guess the corresponding key. For example, in the case of a 128-bit key, it takes billions of years to be able to guess it correctly (using modern computer hardware). Generally speaking, the longer the key is, the harder it is to break it. Keys as long as 256 bits are generally considered to be highly secure.
 
-![image](https://user-images.githubusercontent.com/32808627/148637747-45294cf1-e7ad-402b-8bc4-11c2acd863ea.png)
+| ![image](https://user-images.githubusercontent.com/32808627/148637747-45294cf1-e7ad-402b-8bc4-11c2acd863ea.png) | 
+|:--:| 
+| Self-created resource. [draw.io file](https://github.com/Irek-h/JWT_CaDS/blob/main/pictures.drawio) |
 
 ### HMAC
 
@@ -147,7 +151,10 @@ Each asymmetric pair of keys is unique so that a message encrypted with a public
 
 Since the algorithms for asymmetric encryption generate pairs of keys that are mathematically related to each other, the keys generated in this way are much longer than the keys generated using symmetric cryptography. Their length - typically between 1024 and 2048 bits - makes it extremely difficult to compute a private key from its public counterpart.
 
-![image](https://user-images.githubusercontent.com/32808627/148637986-bc91728f-85ee-41da-9301-1a6734c47bda.png)
+| ![image](https://user-images.githubusercontent.com/32808627/148637986-bc91728f-85ee-41da-9301-1a6734c47bda.png) | 
+|:--:| 
+| Self-created resource. [draw.io file](https://github.com/Irek-h/JWT_CaDS/blob/main/pictures.drawio) |
+
 
 ### RSA
 
