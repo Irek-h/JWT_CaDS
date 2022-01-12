@@ -8,7 +8,7 @@ Research about JWT (JSON Web Token)
 4. Strong and weak parts
 5. Possible threats
 6. PoC crack
-7. Further reading
+7. Resources & Further reading
 
 # 1. What is JSON Web Token?
 
@@ -344,8 +344,9 @@ It is important to notice that brute force attacks happen in the wild all the ti
 
 
 
-# 7. Further reading
+# 7. Resources & Further reading
 
+- https://datatracker.ietf.org/doc/html/rfc7519
 - https://jwt.io/introduction
 - https://www.akana.com/blog/what-is-jwt
 - https://research.securitum.com/jwt-json-web-token-security/
